@@ -2,6 +2,9 @@ import time
 import os
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
+from modules.image_canny import Canny
+from modules.mosaic_to_faces import apply_mosaic_to_faces
+from modules.usida_face_judge import Face_judge
 
 class MyHandler(FileSystemEventHandler):
     def on_modified(self, event):
