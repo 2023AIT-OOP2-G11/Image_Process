@@ -35,7 +35,7 @@ def upload_file():
 def upload_list():
 
     # 画像監視プログラムから受け取ったファイル名配列
-    # imgs = ['1.png','2.png','3.png']
+    imgs = ['1.jpeg','2.jpeg']
 
     return render_template('upload_list.html',imgs=imgs)
 
@@ -43,7 +43,7 @@ def upload_list():
 @app.route('/canny')
 def canny():
 
-    # imgs = ['1.png','2.png','3.png']
+    imgs = ['1.jpeg','2.jpeg']
     
     return render_template('canny.html',imgs=imgs)
 
@@ -51,7 +51,7 @@ def canny():
 @app.route('/gray_scale')
 def gray_scale():
 
-    # imgs = ['1.png','2.png','3.png']
+    imgs = ['1.jpeg','2.jpeg']
     
     return render_template('gray_scale.html',imgs=imgs)
 
@@ -59,7 +59,7 @@ def gray_scale():
 @app.route('/mosaic')
 def mosaic():
 
-    # imgs = ['1.png','2.png','3.png']
+    imgs = ['1.jpeg','2.jpeg']
     
     return render_template('mosaic.html',imgs=imgs)
 
@@ -67,7 +67,7 @@ def mosaic():
 @app.route('/rectangle')
 def rectangle():
 
-    # imgs = ['1.png','2.png','3.png']
+    imgs = ['1.jpeg','2.jpeg']
     
     return render_template('rectangle.html',imgs=imgs)
 
