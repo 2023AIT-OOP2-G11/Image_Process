@@ -9,6 +9,7 @@ from modules.usida_face_judge import Face_judge
 
 class MyHandler(FileSystemEventHandler):
     def on_modified(self, event):
+        # ファイルが変更された場合の処理
         if event.is_directory:
             return
         file_path = os.path.relpath(event.src_path)
@@ -16,6 +17,7 @@ class MyHandler(FileSystemEventHandler):
         process_file(file_path)
 
     def on_created(self, event):
+        # ファイルが作成された場合の処理
         if event.is_directory:
             return
         file_path = os.path.relpath(event.src_path)
@@ -28,8 +30,9 @@ def process_file(file_path):
     grayscale_img = grayscale_and_threshold()
     judge_img = Face_judge()
     
-
+    
 if __name__ == "__main__":
+    # ディレクトリの監視を開始
     event_handler = MyHandler()
     observer = Observer()
     observer.schedule(event_handler, path='input_files', recursive=False)
@@ -39,5 +42,6 @@ if __name__ == "__main__":
         while True:
             time.sleep(1)
     except KeyboardInterrupt:
+        # プログラムがキーボード入力で停止された場合、監視を停止
         observer.stop()
     observer.join()
