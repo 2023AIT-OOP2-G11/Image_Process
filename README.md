@@ -1,2 +1,2 @@
-# Image_Processing
+# Image_Process
 Webインターフェースを持つ画像処理システム
