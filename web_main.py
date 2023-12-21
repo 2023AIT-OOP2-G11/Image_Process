@@ -15,18 +15,20 @@ def upload_file():
     image = request.files['image']
 
     if image.filename == '':
-        return 'ファイルが選択されていません'
+        return render_template("top.html")
 
     # 画像を保存するディレクトリを指定
-    upload_directory = 'uploads/'
+    upload_directory = 'static/'
+
+    uploaded_filename = image.filename
 
     # 一意のファイル名を生成
-    filename = upload_directory + 'uploaded_image.png'
+    filename = upload_directory + uploaded_filename
 
     # 画像を保存
     image.save(filename)
 
-    return '画像がアップロードされました: ' + filename
+    return render_template("top.html")
 
 if __name__ == "__main__":
     # debugモードが不要の場合は、debug=Trueを消してください
