@@ -30,6 +30,47 @@ def upload_file():
 
     return render_template("top.html")
 
+# アップロードリスト画像表示
+@app.route('/upload_list')
+def upload_list():
+
+    # 画像監視プログラムから受け取ったファイル名配列
+    # imgs = ['1.png','2.png','3.png']
+
+    return render_template('upload_list.html',imgs=imgs)
+
+# Cannyフィルタによる輪郭抽出画像表示
+@app.route('/canny')
+def canny():
+
+    # imgs = ['1.png','2.png','3.png']
+    
+    return render_template('canny.html',imgs=imgs)
+
+# グレースケール画像表示
+@app.route('/gray_scale')
+def gray_scale():
+
+    # imgs = ['1.png','2.png','3.png']
+    
+    return render_template('gray_scale.html',imgs=imgs)
+
+# モザイク画像表示
+@app.route('/mosaic')
+def mosaic():
+
+    # imgs = ['1.png','2.png','3.png']
+    
+    return render_template('mosaic.html',imgs=imgs)
+
+# 顔検出して枠で囲む画像表示
+@app.route('/rectangle')
+def rectangle():
+
+    # imgs = ['1.png','2.png','3.png']
+    
+    return render_template('rectangle.html',imgs=imgs)
+
 if __name__ == "__main__":
     # debugモードが不要の場合は、debug=Trueを消してください
     app.run(debug=True)
