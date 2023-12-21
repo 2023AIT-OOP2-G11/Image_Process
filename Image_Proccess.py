@@ -4,6 +4,7 @@ from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 from modules.image_canny import Canny
 from modules.mosaic_to_faces import apply_mosaic_to_faces
+from modules.sekimoto_gray import grayscale_and_threshold
 from modules.usida_face_judge import Face_judge
 
 class MyHandler(FileSystemEventHandler):
@@ -22,11 +23,11 @@ class MyHandler(FileSystemEventHandler):
         process_file(file_path)
 
 def process_file(file_path):
-    # ここにファイルの処理を書く
-    # 例: ファイルを別のディレクトリに保存
-    save_path = os.path.join('processed_files', os.path.basename(file_path))
-    os.rename(file_path, save_path)
-    print(f"File {file_path} has been processed and saved to {save_path}")
+    Canny_img = Canny()
+    mosaic_img = apply_mosaic_to_faces()
+    grayscale_img = grayscale_and_threshold()
+    judge_img = Face_judge()
+    
 
 if __name__ == "__main__":
     event_handler = MyHandler()
